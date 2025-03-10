@@ -16,6 +16,7 @@ import pytest
 from random import randint
 from bubble_sort import bubble_sort
 from selection_sort import selection_sort
+from insertion_sort import insertion_sort
 
 
 class TestSortingMethods:
@@ -38,6 +39,12 @@ class TestSortingMethods:
         """Testing selection_sort"""
         print(f"self.lst_to_sort is sort? {self.lst_to_sort == self.test_lst}")
         selection_sort(self.lst_to_sort)
+        assert self.lst_to_sort == self.test_lst
+
+    def test_insertion_sort(self):
+        """Testing insertion_sort"""
+        print(f"self.lst_to_sort is sort? {self.lst_to_sort == self.test_lst}")
+        insertion_sort(self.lst_to_sort)
         assert self.lst_to_sort == self.test_lst
 
 
