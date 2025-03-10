@@ -18,6 +18,7 @@ from bubble_sort import bubble_sort
 from selection_sort import selection_sort
 from insertion_sort import insertion_sort
 from shell_sort import shell_sort
+from merge_sort import merge_sort
 
 
 class TestSortingMethods:
@@ -52,6 +53,12 @@ class TestSortingMethods:
         """Testing shell_sort"""
         print(f"self.lst_to_sort is sort? {self.lst_to_sort == self.test_lst}")
         shell_sort(self.lst_to_sort)
+        assert self.lst_to_sort == self.test_lst
+
+    def test_merge_sort(self):
+        """Testing merge_sort"""
+        print(f"self.lst_to_sort is sort? {self.lst_to_sort == self.test_lst}")
+        merge_sort(self.lst_to_sort)
         assert self.lst_to_sort == self.test_lst
 
 
