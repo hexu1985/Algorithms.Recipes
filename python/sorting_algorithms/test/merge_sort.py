@@ -1,1 +1,1 @@
-../merge_sort/recipe-01/merge_sort.py
+../merge_sort/recipe-02/merge_sort.py

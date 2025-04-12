@@ -2,7 +2,7 @@
 """Sorting algorithms"""
 
 def merge_sort(alist):
-    print("Splitting ", alist)
+    #print("Splitting ", alist)
     if len(alist) > 1:
         mid = len(alist) // 2
         lefthalf = alist[:mid]
@@ -32,7 +32,7 @@ def merge_sort(alist):
             alist[k] = righthalf[j]
             j = j + 1
             k = k + 1
-    print("Merging ", alist)
+    #print("Merging ", alist)
 
 
 def main():
