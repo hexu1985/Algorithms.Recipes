@@ -1,12 +1,12 @@
 #include <benchmark/benchmark.h>
 #include <vector>
 #include <algorithm>
+#include "random.hpp"
 
 // 测试不同排序算法的性能 
-template <typename T>
-static void BM_Sort(benchmark::State& state) {
-    std::vector<T> data(state.range(0)); 
-    std::generate(data.begin(),  data.end(),  []{ return rand() % 1000; });
+static void BM_std_sort_int(benchmark::State& state) {
+    std::vector<int> data(state.range(0)); 
+    std::generate(data.begin(),  data.end(),  []{ return randint(1, 10000); });
 
     for (auto _ : state) {
         state.PauseTiming();
@@ -15,10 +15,9 @@ static void BM_Sort(benchmark::State& state) {
 
         std::sort(temp.begin(),  temp.end()); 
     }
-    state.SetBytesProcessed(state.iterations()  * data.size()  * sizeof(T));
 }
 
-BENCHMARK_TEMPLATE(BM_Sort, int)->RangeMultiplier(10)->Range(100, 10000000)->Unit(benchmark::kMicrosecond);
+BENCHMARK(BM_std_sort_int)->RangeMultiplier(10)->Range(100, 10000000)->Unit(benchmark::kMicrosecond);
 
 BENCHMARK_MAIN();
 
