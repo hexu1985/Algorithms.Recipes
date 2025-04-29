@@ -1,7 +1,6 @@
 #pragma once
 
 #include <span>
-#include <utility>
 
 template <typename T>
 void insertion_sort(std::span<T> alist) {
