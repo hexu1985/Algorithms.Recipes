@@ -7,6 +7,7 @@
 #include "bubble_sort.hpp"
 #include "selection_sort.hpp"
 #include "insertion_sort.hpp"
+#include "shell_sort.hpp"
 
 template <typename T>
 void print_list(std::string_view title, std::span<T> items) {
@@ -53,6 +54,11 @@ TEST_F(TestSortingMethods, test_selection_sort) {
 
 TEST_F(TestSortingMethods, test_insertion_sort) {
     insertion_sort(std::span<int>(test_lst));
+    EXPECT_EQ(test_lst, sorted_lst);
+}
+
+TEST_F(TestSortingMethods, test_shell_sort) {
+    shell_sort(std::span<int>(test_lst));
     EXPECT_EQ(test_lst, sorted_lst);
 }
 
