@@ -1,1 +1,1 @@
-../bubble_sort/recipe-01/bubble_sort.hpp
+../bubble_sort/recipe-02/bubble_sort.hpp

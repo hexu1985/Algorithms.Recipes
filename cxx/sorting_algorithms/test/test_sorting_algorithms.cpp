@@ -8,6 +8,7 @@
 #include "selection_sort.hpp"
 #include "insertion_sort.hpp"
 #include "shell_sort.hpp"
+#include "quick_sort.hpp"
 
 template <typename T>
 void print_list(std::string_view title, std::span<T> items) {
@@ -62,3 +63,7 @@ TEST_F(TestSortingMethods, test_shell_sort) {
     EXPECT_EQ(test_lst, sorted_lst);
 }
 
+TEST_F(TestSortingMethods, test_quick_sort) {
+    quick_sort(std::span<int>(test_lst));
+    EXPECT_EQ(test_lst, sorted_lst);
+}
