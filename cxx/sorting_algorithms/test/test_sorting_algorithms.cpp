@@ -5,6 +5,7 @@
 #include <string_view>
 #include "random.hpp"
 #include "bubble_sort.hpp"
+#include "insertion_sort.hpp"
 
 template <typename T>
 void print_list(std::string_view title, std::span<T> items) {
@@ -41,6 +42,11 @@ protected:
 
 TEST_F(TestSortingMethods, test_bubble_sort) {
     bubble_sort(std::span<int>(test_lst));
+    EXPECT_EQ(test_lst, sorted_lst);
+}
+
+TEST_F(TestSortingMethods, test_insertion_sort) {
+    insertion_sort(std::span<int>(test_lst));
     EXPECT_EQ(test_lst, sorted_lst);
 }
 
