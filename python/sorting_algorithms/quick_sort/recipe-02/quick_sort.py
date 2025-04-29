@@ -42,16 +42,27 @@ def partition(alist, first, last):
 
 def median3(alist, first, last):
     center = (first + last) // 2
+    medianIndex = first
 
-    if alist[first] < alist[center]:    # first是较大者
-        temp = alist[first]
-        alist[first] = alist[center]
-        alist[center] = temp
-    if alist[first] > alist[last]:      # firsr是较小者
-        temp = alist[first]
-        alist[first] = alist[last]
-        alist[last] = temp
+    if alist[first] < alist[last]:
+        if alist[center] < alist[first]:
+            medianIndex = first
+        elif alist[last] < alist[center]:
+            medianIndex = last
+        else:
+            medianIndex = center
+    else:
+        if alist[center] < alist[last]:
+            medianIndex = last
+        elif alist[first] < alist[center]:
+            medianIndex = first
+        else:
+            medianIndex = center
 
+    if medianIndex != first:
+        temp = alist[first]
+        alist[first] = alist[medianIndex]
+        alist[medianIndex] = temp
 
 def main():
     a_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
