@@ -1,1 +1,1 @@
-../quick_sort/recipe-01/quick_sort.hpp
+../quick_sort/recipe-02/quick_sort.hpp

@@ -88,12 +88,12 @@ static void BM_quick_sort_int(benchmark::State& state) {
     }
 }
 
-BENCHMARK(BM_std_sort_int)->RangeMultiplier(10)->Range(100, 10000000)->Unit(benchmark::kMicrosecond);
-BENCHMARK(BM_bubble_sort_int)->RangeMultiplier(10)->Range(100, 100000)->Unit(benchmark::kMicrosecond);
-BENCHMARK(BM_selection_sort_int)->RangeMultiplier(10)->Range(100, 100000)->Unit(benchmark::kMicrosecond);
-BENCHMARK(BM_insertion_sort_int)->RangeMultiplier(10)->Range(100, 100000)->Unit(benchmark::kMicrosecond);
-BENCHMARK(BM_shell_sort_int)->RangeMultiplier(10)->Range(100, 10000000)->Unit(benchmark::kMicrosecond);
-BENCHMARK(BM_quick_sort_int)->RangeMultiplier(10)->Range(100, 10000000)->Unit(benchmark::kMicrosecond);
+BENCHMARK(BM_std_sort_int)->RangeMultiplier(10)->Range(10, 10000000)->Unit(benchmark::kMicrosecond);
+BENCHMARK(BM_bubble_sort_int)->RangeMultiplier(10)->Range(10, 100000)->Unit(benchmark::kMicrosecond);
+BENCHMARK(BM_selection_sort_int)->RangeMultiplier(10)->Range(10, 100000)->Unit(benchmark::kMicrosecond);
+BENCHMARK(BM_insertion_sort_int)->RangeMultiplier(10)->Range(10, 100000)->Unit(benchmark::kMicrosecond);
+BENCHMARK(BM_shell_sort_int)->RangeMultiplier(10)->Range(10, 10000000)->Unit(benchmark::kMicrosecond);
+BENCHMARK(BM_quick_sort_int)->RangeMultiplier(10)->Range(10, 10000000)->Unit(benchmark::kMicrosecond);
 
 BENCHMARK_MAIN();
 
