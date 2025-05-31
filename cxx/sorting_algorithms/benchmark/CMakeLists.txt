@@ -32,8 +32,13 @@ add_custom_target(copy_scripts ALL
 
 add_subdirectory(lib)
 
-add_executable(benchmark_sorting_algorighms benchmark_sorting_algorighms.cpp)
-target_include_directories(benchmark_sorting_algorighms PRIVATE lib)
-target_link_libraries(benchmark_sorting_algorighms PRIVATE sort_helper benchmark::benchmark)
-add_dependencies(benchmark_sorting_algorighms copy_scripts)
+file(GLOB PROGRAMS_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+
+FOREACH (src_file ${PROGRAMS_SOURCES})
+    get_filename_component(exe_file ${src_file} NAME_WLE)
+    add_executable(${exe_file} ${src_file})
+    target_include_directories(${exe_file} PRIVATE lib)
+    target_link_libraries(${exe_file} PRIVATE sort_helper benchmark::benchmark)
+    add_dependencies(${exe_file} copy_scripts)
+ENDFOREACH()
 
