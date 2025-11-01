@@ -3,24 +3,24 @@
 using namespace std;
 using Graph = vector<vector<int>>;
 
-// Éî¶ÈÓÅÏÈËÑË÷
+// æ·±åº¦ä¼˜å…ˆæœç´¢
 vector<bool> seen;
 void dfs(const Graph &G, int v) {
-    seen[v] = true; // ±ê¼Ç¶¥µãvÎªÒÑ±»·ÃÎÊ
+    seen[v] = true; // æ ‡è®°é¡¶ç‚¹vä¸ºå·²è¢«è®¿é—®
 
-    // ±éÀú¿É´ïµÄÃ¿¸ö¶¥µãnext_v
+    // éå†å¯è¾¾çš„æ¯ä¸ªé¡¶ç‚¹next_v
     for (auto next_v : G[v]) { 
-        if (seen[next_v]) continue; // Èç¹ûnext_vÒÑ±»·ÃÎÊ£¬Ôò²»ÔÙËÑË÷
-        dfs(G, next_v); // µİ¹éµØ½øĞĞËÑË÷
+        if (seen[next_v]) continue; // å¦‚æœnext_vå·²è¢«è®¿é—®ï¼Œåˆ™ä¸å†æœç´¢
+        dfs(G, next_v); // é€’å½’åœ°è¿›è¡Œæœç´¢
     }
 }
 
 int main() {
-    // ¶¥µãÊıºÍ±ßÊı
+    // é¡¶ç‚¹æ•°å’Œè¾¹æ•°
     int N, M;
     cin >> N >> M;
 
-    // ÊäÈëÍ¼£¨ÕâÀï¼Ù¶¨ÊÇÓĞÏòÍ¼£©
+    // è¾“å…¥å›¾ï¼ˆè¿™é‡Œå‡å®šæ˜¯æœ‰å‘å›¾ï¼‰
     Graph G(N);
     for (int i = 0; i < M; ++i) {
         int a, b;
@@ -28,10 +28,10 @@ int main() {
         G[a].push_back(b);
     }
 
-    // ¿ªÊ¼ËÑË÷
-    seen.assign(N, false); // ³õÊ¼×´Ì¬ÏÂ£¬ËùÓĞ¶¥µã¶¼Î´±»·ÃÎÊ
+    // å¼€å§‹æœç´¢
+    seen.assign(N, false); // åˆå§‹çŠ¶æ€ä¸‹ï¼Œæ‰€æœ‰é¡¶ç‚¹éƒ½æœªè¢«è®¿é—®
     for (int v = 0; v < N; ++v) {
-        if (seen[v]) continue; // Èç¹ûÒÑ¾­±»·ÃÎÊ£¬²»ÔÙ½øĞĞËÑË÷
+        if (seen[v]) continue; // å¦‚æœå·²ç»è¢«è®¿é—®ï¼Œä¸å†è¿›è¡Œæœç´¢
         dfs(G, v);
     }
 }

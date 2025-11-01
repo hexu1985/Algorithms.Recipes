@@ -4,28 +4,28 @@
 using namespace std;
 using Graph = vector<vector<int>>;
 
-// ÊäÈë£ºÍ¼GºÍËÑË÷µÄÆðµãs
-// Êä³ö£º±íÊ¾´Ósµ½Ã¿¸ö¶¥µãµÄ×î¶ÌÂ·¾¶³¤¶ÈµÄÊý×é
+// è¾“å…¥ï¼šå›¾Gå’Œæœç´¢çš„èµ·ç‚¹s
+// è¾“å‡ºï¼šè¡¨ç¤ºä»Žsåˆ°æ¯ä¸ªé¡¶ç‚¹çš„æœ€çŸ­è·¯å¾„é•¿åº¦çš„æ•°ç»„
 vector<int> BFS(const Graph &G, int s) {
-    int N = (int)G.size(); // ¶¥µãÊý
-    vector<int> dist(N, -1); // ½«ËùÓÐ¶¥µã³õÊ¼»¯ÎªÎ´±»·ÃÎÊ
+    int N = (int)G.size(); // é¡¶ç‚¹æ•°
+    vector<int> dist(N, -1); // å°†æ‰€æœ‰é¡¶ç‚¹åˆå§‹åŒ–ä¸ºæœªè¢«è®¿é—®
     queue<int> que;
 
-    // ³õÊ¼Ìõ¼þ£¨½«¶¥µãs×÷ÎªÆðÊ¼¶¥µã£©
+    // åˆå§‹æ¡ä»¶ï¼ˆå°†é¡¶ç‚¹sä½œä¸ºèµ·å§‹é¡¶ç‚¹ï¼‰
     dist[s] = 0;
     que.push(s); 
 
-    // ¿ªÊ¼BFS £¨Ö±µ½¶ÓÁÐÎª¿ÕÎªÖ¹£©
+    // å¼€å§‹BFS ï¼ˆç›´åˆ°é˜Ÿåˆ—ä¸ºç©ºä¸ºæ­¢ï¼‰
     while (!que.empty()) {
-        int v = que.front(); // ´Ó¶ÓÁÐÖÐÈ¡³ö¶ÓÊ×¶¥µã
+        int v = que.front(); // ä»Žé˜Ÿåˆ—ä¸­å–å‡ºé˜Ÿé¦–é¡¶ç‚¹
         que.pop();
 
-        // ¼ì²éËùÓÐ´Ó¿Éµ½´ïµÄ¶¥µã
+        // æ£€æŸ¥æ‰€æœ‰ä»Žå¯åˆ°è¾¾çš„é¡¶ç‚¹
         for (int x : G[v]) {
-            // ²»ÔÙËÑË÷ÒÑ¾­·ÃÎÊµÄ¶¥µã
+            // ä¸å†æœç´¢å·²ç»è®¿é—®çš„é¡¶ç‚¹
             if (dist[x] != -1) continue; 
 
-            // ¶ÔÓÚÐÂµÄÎ´±»·ÃÎÊ¶¥µãx£¬¸üÐÂ¾àÀëÐÅÏ¢²¢½«Æä²åÈë¶ÓÁÐ
+            // å¯¹äºŽæ–°çš„æœªè¢«è®¿é—®é¡¶ç‚¹xï¼Œæ›´æ–°è·ç¦»ä¿¡æ¯å¹¶å°†å…¶æ’å…¥é˜Ÿåˆ—
             dist[x] = dist[v] + 1;
             que.push(x);
         }
@@ -34,11 +34,11 @@ vector<int> BFS(const Graph &G, int s) {
 }
 
 int main() {
-    // ¶¥µãÊýºÍ±ßÊý
+    // é¡¶ç‚¹æ•°å’Œè¾¹æ•°
     int N, M;
     cin >> N >> M;
 
-    // ÊäÈëÍ¼£¨ÕâÀï¼Ù¶¨ÊÇÎÞÏòÍ¼£©
+    // è¾“å…¥å›¾ï¼ˆè¿™é‡Œå‡å®šæ˜¯æ— å‘å›¾ï¼‰
     Graph G(N);
     for (int i = 0; i < M; ++i) {
         int a, b;
@@ -47,9 +47,9 @@ int main() {
         G[b].push_back(a);
     }
 
-    // ÒÔ¶¥µã0ÎªÆðµãµÄBFS
+    // ä»¥é¡¶ç‚¹0ä¸ºèµ·ç‚¹çš„BFS
     vector<int> dist = BFS(G, 0);
 
-    // Êä³ö½á¹û£¨²é¿´Ã¿¸ö¶¥µãµ½¶¥µã0µÄ¾àÀë£©
+    // è¾“å‡ºç»“æžœï¼ˆæŸ¥çœ‹æ¯ä¸ªé¡¶ç‚¹åˆ°é¡¶ç‚¹0çš„è·ç¦»ï¼‰
     for (int v = 0; v < N; ++v) cout << v << ": " << dist[v] << endl;
 }
